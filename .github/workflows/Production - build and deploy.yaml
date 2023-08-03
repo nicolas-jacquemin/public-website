@@ -1,4 +1,4 @@
-name: Nicolas Prod Build and Deploy
+name: Production Build and Deploy
 
 on:
   push:
@@ -35,9 +35,9 @@ jobs:
         tags: ${{ env.REGISTRY }}/${{ env.IMAGE }}
 
 
-  trigger_preprod_deployment:
+  trigger_prod_deployment:
 
-    name: Trigger the preprod deployment in portainer
+    name: Trigger the prod deployment in portainer
     needs: push_to_registry
     runs-on: ubuntu-latest
 
