@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="container-full">
@@ -19,6 +17,5 @@
   width: 100vw;
   align-items: center;
   justify-content: center;
-  
 }
 </style>
