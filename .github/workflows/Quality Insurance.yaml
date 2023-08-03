@@ -45,6 +45,8 @@ jobs:
 
 
   format:
+    permissions:
+      contents: write
     needs: [lint, type_test]
     runs-on: ubuntu-latest
     steps:
