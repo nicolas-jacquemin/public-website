@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: "20.x"
       - run: npm ci
-      - run: npm run type-test
+      - run: npm run type-check
   
   lint:
     runs-on: ubuntu-latest
