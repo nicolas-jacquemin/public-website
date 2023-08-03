@@ -30,9 +30,22 @@ jobs:
       - run: npm ci
       - run: npm run lint
 
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ false }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "20.x"
+      - run: npm ci
+      - run: npm run test
+
+
   format:
-    permissions:
-      contents: write
+    needs: [lint, type_test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -50,16 +63,4 @@ jobs:
           commit_message: '[prettier] Apply formatting changes'
           commit_user_name: Prettier Bot
           commit_user_email: prettierbot@nicojqn.fr
-
-  test:
-    runs-on: ubuntu-latest
-    if: ${{ false }}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "20.x"
-      - run: npm ci
-      - run: npm run test
+          commit_author: Prettier Bot <prettierbot@nicojqn.fr>
